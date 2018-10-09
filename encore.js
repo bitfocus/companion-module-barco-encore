@@ -41,7 +41,7 @@ instance.prototype.init_tcp = function() {
 	}
 
 	if (self.config.host) {
-		self.socket = new tcp(self.config.host, 9878);
+		self.socket = new tcp(self.config.host, self.config.port !== undefined ? self.config.port : 3000 );
 
 		self.socket.on('status_change', function (status, message) {
 			self.status(status, message);
@@ -80,6 +80,14 @@ instance.prototype.config_fields = function () {
 			label: 'Target IP',
 			width: 6,
 			regex: self.REGEX_IP
+		},
+		{
+			type: 'textinput',
+			id: 'port',
+			label: 'Target Port',
+			width: 6,
+			default:3000,
+			regex: self.REGEX_PORT
 		}
 	]
 };
