@@ -107,6 +107,7 @@ instance.prototype.destroy = function() {
 instance.prototype.actions = function(system) {
 	var self = this;
 	self.system.emit('instance_actions', self.id, {
+
 		'atrn':	{
 			label: 'Auto Transition',
 			options: [
@@ -131,32 +132,7 @@ instance.prototype.actions = function(system) {
 					regex: self.REGEX_NUMBER
 				}
 			]
-		},
-
-		'preset_recall_atrn':	{
-			label: 'Recall Preset and Transition',
-			options: [
-				{
-					type: 'textinput',
-					label: 'Preset Number',
-					id: 'preset',
-					default: "",
-					regex: self.REGEX_NUMBER
-				},
-			]
-		},
-		'preset_save':	{
-			label: 'Save Preset',
-			options: [
-				{
-					type: 'textinput',
-					label: 'Preset Number',
-					id: 'preset',
-					default: "",
-					regex: self.REGEX_NUMBER
-				}
-			]
-		},
+		}
 
 	});
 };
@@ -173,15 +149,7 @@ instance.prototype.action = function(action) {
 			break;
 
 		case 'preset_recall':
-			cmd = 'PRESET -r ' + parseInt(opt.preset);
-			break;
-
-		case 'preset_recall_atrn':
-			cmd = 'PRESET -a ' + parseInt(opt.preset);
-			break;
-
-		case 'preset_save':
-			cmd = 'PRESET -s ' + parseInt(opt.preset);
+			cmd = 'PRESET R ' + parseInt(opt.preset);
 			break;
 
 	};
