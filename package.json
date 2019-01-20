@@ -1,9 +1,11 @@
 {
 	"name": "barco-encore",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"api_version": "1.0.0",
 	"description": "Barco Encore",
-	"keywords": [ "Image Processing" ],
+	"keywords": [
+		"Image Processing"
+	],
 	"manufacturer": "Barco",
 	"product": "Encore",
 	"shortname": "encore",
